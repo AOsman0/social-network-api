@@ -4,6 +4,8 @@ console.log("hello node");
 
 require("dotenv").config();
 
+const databaseConnection = require("../config/connection.js");
+
 //  import mongoose and express
 const express = require("express");
 const mongoose = require("mongoose");
@@ -28,17 +30,7 @@ app.use(routes);
 
 const init = async () => {
   try {
-    const DB_NAME = process.env.DB_NAME;
-    const MONGODB_URI =
-      process.env.MONGODB_URI || `mongodb://localhost:27017/${DB_NAME}`;
-
-    const options = {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    };
-
-    await mongoose.connect(MONGODB_URI, options);
-
+    await databaseConnection;
     app.listen(PORT, () => {
       console.log(`Server running on http://localhost:${PORT}`);
     });
