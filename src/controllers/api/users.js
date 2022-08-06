@@ -1,5 +1,14 @@
-const getAllUsers = (req, res) => {
+// require models
+
+const users = require("../../models/User");
+const thoughts = require("../../models/Thought");
+
+const getAllUsers = async (req, res) => {
   res.send("getAllUsers");
+  try {
+    const user = await User.find({});
+    return res.json({ data: user });
+  } catch (error) {}
 };
 
 const getUserById = (req, res) => {

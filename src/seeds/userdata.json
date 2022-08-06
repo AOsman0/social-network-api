@@ -1,0 +1,25 @@
+[
+  {
+    "userName": "Abdirahman Osman",
+    "email": "abdi123@gmail.com",
+    "friends": []
+  },
+  {
+    "userName": "Mate Osman",
+    "email": "mate123@gmail.com",
+    "friends": []
+  },
+  {
+    "userName": "No Osman",
+    "email": "no123@gmail.com",
+    "friends": []
+  },
+  {
+    "userName": "Real Osman",
+    "email": "real12@gmail.com",
+    "friends": []
+  }
+]
+
+// either seed all users and then retrieve them and their ids and randomlyy associate the users as friends OR
+// create another model called something like friendAssociations and associate friends betweeen one another

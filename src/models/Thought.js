@@ -1,6 +1,10 @@
-const { Schema } = require("mongoose");
+const mongoose = require("mongoose");
 
-const userSchema = {
+const Schema = mongoose.Schema;
+
+const reaction = require("./Reaction");
+
+const ThoughtSchema = {
   thoughtText: {
     type: String,
     required: true,
@@ -22,13 +26,13 @@ const userSchema = {
   reactions: [
     {
       type: Schema.Types.ObjectId,
-      ref: "user",
+      ref: reaction,
     },
   ],
 };
 
-const schema = new Schema(userSchema);
+const schema = new Schema(ThoughtSchema);
 
-const User = model("user", schema);
+const Thought = mongoose.model("Thought", schema);
 
-model.exports = User;
+module.exports = Thought;
