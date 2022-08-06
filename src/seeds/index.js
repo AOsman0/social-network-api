@@ -8,6 +8,10 @@ const User = require("../models/User");
 
 const userdata = require("./userdata.json");
 
+const Thought = require("../models/Thought");
+
+const thoughtdata = require("./thoughtdata.json");
+
 const init = async () => {
   try {
     const DB_NAME = process.env.DB_NAME;
@@ -26,6 +30,11 @@ const init = async () => {
 
     await User.insertMany(userdata);
     console.log("[INFO]: Successfully seeded users");
+
+    Thought.deleteMany({});
+
+    await Thought.insertMany(thoughtdata);
+    console.log("[INFO]: Successfully seeded thoughts");
 
     process.exit(0);
   } catch (error) {

@@ -1,14 +1,20 @@
 // require models
 
-const users = require("../../models/User");
-const thoughts = require("../../models/Thought");
+const User = require("../../models/User");
+const Thought = require("../../models/Thought");
+
+const server = require("../../index");
+
+const mongoose = require("mongoose");
 
 const getAllUsers = async (req, res) => {
   res.send("getAllUsers");
   try {
-    const user = await User.find({});
-    return res.json({ data: user });
-  } catch (error) {}
+    const users = await User.find({});
+    return res.json({ users });
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 const getUserById = (req, res) => {
