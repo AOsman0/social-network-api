@@ -12,16 +12,15 @@ const ThoughtSchema = {
     maxLength: 280,
   },
   createdAt: {
+    type: Date,
+    required: true,
+  },
+  userName: {
     type: String,
     required: true,
     minLength: 2,
     maxLength: 50,
     trim: true,
-    unique: true,
-  },
-  userName: {
-    type: String,
-    required: true,
   },
   reactions: [
     {

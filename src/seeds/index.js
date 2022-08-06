@@ -2,15 +2,7 @@ require("dotenv").config();
 
 const mongoose = require("mongoose");
 
-// get all our models from our paths
-
-const User = require("../models/User");
-
-const userdata = require("./userdata.json");
-
-const Thought = require("../models/Thought");
-
-const thoughtdata = require("./thoughtdata.json");
+const { seedUsers, seedThoughts } = require("./util");
 
 const init = async () => {
   try {
@@ -26,21 +18,16 @@ const init = async () => {
     mongoose.connect(MONGODB_URI, options);
     console.log("[INFO]: Successfully connected to DB");
 
-    User.deleteMany({});
+    // seed users
+    await seedUsers(50);
 
-    await User.insertMany(userdata);
-    console.log("[INFO]: Successfully seeded users");
-
-    Thought.deleteMany({});
-
-    await Thought.insertMany(thoughtdata);
-    console.log("[INFO]: Successfully seeded thoughts");
-
-    process.exit(0);
+    // seed thoughts
+    await seedThoughts(30);
   } catch (error) {
     console.log(`[ERROR]: Failed to seed DB | ${error.message}`);
-    process.exit(0);
   }
+
+  process.exit(0);
 };
 
 // get one user
