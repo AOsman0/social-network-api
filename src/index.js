@@ -4,7 +4,7 @@ console.log("hello node");
 
 require("dotenv").config();
 
-const databaseConnection = require("../config/connection.js");
+const databaseConnection = require("./config/connection.js");
 
 //  import mongoose and express
 const express = require("express");

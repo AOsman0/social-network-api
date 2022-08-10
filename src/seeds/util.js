@@ -53,4 +53,7 @@ const seedThoughts = async (numberOfThoughts) => {
   console.log("[INFO]: Successfully seeded thoughts");
 };
 
+
+
+
 module.exports = { seedUsers, seedThoughts };
