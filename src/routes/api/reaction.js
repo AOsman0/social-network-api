@@ -7,7 +7,7 @@ const {
 
 const router = Router();
 
-router.post("/", createAReaction);
+router.post("/:id", createAReaction);
 router.delete("/:id", deleteAReaction);
 
 module.exports = router;

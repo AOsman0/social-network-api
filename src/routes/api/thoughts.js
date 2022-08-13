@@ -18,6 +18,6 @@ router.post("/", createANewThought);
 router.put("/:id", updateAThought);
 router.delete("/:id", deleteAThought);
 
-router.use("/:id", reactions);
+router.use("/reactions", reactions);
 
 module.exports = router;
