@@ -37,8 +37,24 @@ const createAReaction = async (req, res) => {
   }
 };
 
-const deleteAReaction = (req, res) => {
+const deleteAReaction = async (req, res) => {
   res.send("deleteAReaction");
+  // delete a created recation through reaction id
+
+  // In reaction model
+
+  try {
+    connection();
+    // get a created creation from model
+    const { id } = req.params;
+    const { userName, email } = req.body;
+
+    const removeReaction = await Reaction.deleteOne({ userName, email, id });
+
+    console.log(removeReaction);
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 module.exports = {

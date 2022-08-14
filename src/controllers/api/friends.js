@@ -1,5 +1,8 @@
 const createAFriend = (req, res) => {
-  res.send("createAFriend");
+  try {
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 const deleteAFriend = (req, res) => {
