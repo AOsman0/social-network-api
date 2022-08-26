@@ -29,8 +29,9 @@ https://drive.google.com/drive/folders/1HFVyfxHKk7QlKwXBmmvwk8Gpu4NKQCp7?usp=sha
 GitHub
 Terminal
 VSCode
-SQL
-Sequelize
+MongoDB
+Postman
+Express JS
 NPM
 Node JS
 
